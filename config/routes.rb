@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-    resources :games, except: [:new, :edit]
+  
+  resources :games, except: [:new, :edit]
 
   match "*path", to: "games#index", via: "get"
 
