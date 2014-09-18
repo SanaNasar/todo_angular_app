@@ -2,12 +2,12 @@ class GamesController < ApplicationController
   before_action :set_item, only: [:show, :update, :destroy]
   # create a before_action that just returns the template
   #   without the layout
-  # before_action :render_main_layout_if_format_html
+  before_action :render_main_layout_if_format_html
 
   respond_to :json, :html
 
   def index
-    # respond_with (@items = Item.all)
+    respond_with Item.all
   end
 
   def create
@@ -30,7 +30,7 @@ class GamesController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:title)
+      params.require(:item).permit(:thing, :isDone)
     end
 
     def render_main_layout_if_format_html
@@ -38,6 +38,6 @@ class GamesController < ApplicationController
       if request.format.symbol == :html
         render "layouts/application"
       end
-  end
+    end
 
 end

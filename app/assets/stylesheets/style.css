@@ -8,9 +8,10 @@ h1 {
 a {
   text-align: center;
 }
-body {
-  background-image: url("http://www.mama-bloguje.com/wp-content/uploads/2013/07/RethinkResolutionWallpaper_1280x1024.jpg");
+
+p {
+  text-align: center;
 }
-/*body {
-  background-color: #6BB9F0;
-}*/
+form {
+  padding-left: 50px;
+}

@@ -18,10 +18,10 @@ TodosApp.config ["$routeProvider", "$locationProvider", ($routeProvider, $locati
 TodosApp.controller "GamesCtrl", ["$scope", "$http", ($scope, $http) ->
   # $scope.itemss = []
   $scope.items = []
-
   $scope.getItems = ->
     # make a GET request to /items.json
-    $http.get("/items/json").success (data) ->
+    $http.get("/games.json").success (data) ->
+      console.log data
       # do something with the response..
       # set the value of my response to $scope.items
       $scope.items = data
@@ -30,7 +30,9 @@ TodosApp.controller "GamesCtrl", ["$scope", "$http", ($scope, $http) ->
 
   #CREATE
   $scope.addItem = ->
-    $http.post("/items.json", $scope.newItem).success (data) ->
+    $http.post("/games.json", {item:$scope.newItem}).success (data) ->
+      console.log $scope.newItem
+      # console.log data
       #cleared the form
       $scope.newItem = {}
       # the newItem object is empty now
